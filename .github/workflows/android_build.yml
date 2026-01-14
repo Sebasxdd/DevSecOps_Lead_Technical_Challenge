@@ -28,24 +28,26 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      # Punto 2: Ejecutar pruebas unitarias. Si fallan, el pipeline se detiene.
+      # Punto 2
       - name: Run Unit Tests
         run: ./gradlew test
 
-      # Punto 5: Inyectar certificado desde Secrets
+      # Punto 5
       - name: Decode Keystore
         run: |
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > app/release.keystore
 
-      # Punto 4 y 7: Compilar el proyecto de forma automatizada
+      # Punto 4 y 7
       - name: Build Release APK
         run: ./gradlew assembleRelease
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          BUILD_NUMBER: ${{ github.run_number }}
+          GITHUB_SHA: ${{ github.sha }}
 
-      # Punto 6 y 8 Corregidos: Nombre dinámico tanto en archivo como en artefacto
+      # Punto 6 y 8
       - name: Rename APK
         run: |
           cp app/build/outputs/apk/release/app-release.apk MySecureApp-build-${{ github.run_number }}.apk
