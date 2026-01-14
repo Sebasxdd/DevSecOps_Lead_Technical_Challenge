@@ -5,22 +5,34 @@ plugins {
 
 android {
     namespace = "com.example.mysecureapp"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 35 // Ajustado a valor estable estándar para SDK 35/36
 
     defaultConfig {
         applicationId = "com.example.mysecureapp"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // PUNTO 5: Configuración de firmado usando variables de entorno
+    signingConfigs {
+        create("release") {
+            // El pipeline de GitHub Actions creará este archivo físicamente
+            storeFile = file("release.keystore")
+            storePassword = System.getenv("KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("KEY_ALIAS")
+            keyPassword = System.getenv("KEY_PASSWORD")
+        }
+    }
+
     buildTypes {
-        release {
+        getByName("release") {
+            // PUNTO 5: Aplicamos el firmado a la variante de release
+            signingConfig = signingConfigs.getByName("release")
+
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -28,12 +40,14 @@ android {
             )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 }
 
