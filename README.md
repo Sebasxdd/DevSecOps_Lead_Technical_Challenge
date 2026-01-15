@@ -19,9 +19,9 @@ Este repositorio demuestra cómo transformar un desarrollo Android estándar en 
 
 A continuación, una breve guía de los directorios clave para navegar por el proyecto:
 
-* **`.github/`**: Cerebro del DevSecOps.
+* **`.github/`**: Carpeta de GitHub ( se encuentran las configuracion de github).
     * `workflows/ci-android.yml`: Pipeline de CI/CD que orquesta pruebas, seguridad y compilación.
-    * `CODEOWNERS`: Define la gobernanza del proyecto y quién debe aprobar cambios críticos.
+    * `CODEOWNERS`: Define la gobernanza del proyecto y quién debe aprobar cambios críticos (code owner actual : sebasxdd).
 * **`app/`**: Código fuente de la aplicación Android.
     * `src/main/java`: Lógica Kotlin y Dashboard de seguridad.
     * `src/main/res`: Recursos de UI (Layouts XML, Iconos).
@@ -33,7 +33,7 @@ A continuación, una breve guía de los directorios clave para navegar por el pr
 
 ## Requisitos Técnicos
 
-Para replicar, compilar o contribuir a este proyecto localmente, necesitas:
+Para replicar, compilar o contribuir a este proyecto localmente, se necesita:
 
 * **Sistema Operativo:** Windows 10/11, macOS o Linux.
 * **IDE:** Android Studio Ladybug (2024.2.1) o superior.
@@ -43,9 +43,9 @@ Para replicar, compilar o contribuir a este proyecto localmente, necesitas:
 
 ---
 
-## Guía de Replicación (Android Studio)
+## Guía de Replicación usando Android Studio
 
-Sigue estos pasos para levantar el proyecto en tu máquina local:
+Sigue estos pasos para levantar el proyecto en su máquina local:
 
 1.  **Clonar el repositorio:**
     ```bash
@@ -72,9 +72,10 @@ Sigue estos pasos para levantar el proyecto en tu máquina local:
 
 El proyecto utiliza un flujo **GitHub Flow Protegido** para garantizar la calidad:
 
-1.  **`main` (Protected):** Rama de producción. Los *commits* directos están bloqueados.
+1.  **`main` (Protected):** Rama de producción. Los *commits* directos están bloqueados. En esta rama siempre se encontrara "Production ready code"
 2.  **`feature/*`:** Ramas de trabajo para nuevas funcionalidades.
-3.  **Pull Requests (PR):** Única vía para fusionar código a `main`. Requiere pasar los tests automáticos y aprobación humana.
+3.  **`fix/*`:** Ramas de trabajo para refactorizar el codigo de ser necesario.
+4.  **Pull Requests (PR):** Única vía para fusionar código a `main`. Requiere pasar los tests automáticos y aprobación del code owner.
 
 ### Pipeline de CI/CD (`.github/workflows/ci-android.yml`)
 Cada cambio activa una serie de pasos automatizados:
@@ -89,7 +90,7 @@ Cada cambio activa una serie de pasos automatizados:
 
 ## Descargas (Releases)
 
-Este proyecto genera automáticamente instalables en cada versión estable.
+Este proyecto genera automáticamente un.APK en cada versión estable.
 
 1.  Ve a la sección **[Releases](../../releases)** en la barra lateral derecha.
 2.  Busca la etiqueta más reciente (ej. `v1.0.15`).
