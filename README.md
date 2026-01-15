@@ -7,7 +7,7 @@
 
 Este repositorio demuestra cómo transformar un desarrollo Android estándar en un proceso automatizado, seguro y auditable, cumpliendo con estándares de la industria para CI/CD.
 
-## 🌟 Características Principales
+## Características Principales
 * **Trazabilidad Total:** Inyección dinámica de metadatos (Commit SHA, Build ID, Branch) visibles directamente en la interfaz de la aplicación.
 * **Zero-Trust Security:** Firmado de APKs utilizando certificados en la nube (GitHub Secrets) sin exponer archivos *keystore* físicos en el repositorio.
 * **Integridad del Entorno:** Detección automática de dispositivos *rooteados* y verificación de firmas.
@@ -15,7 +15,7 @@ Este repositorio demuestra cómo transformar un desarrollo Android estándar en 
 
 ---
 
-## 📂 Estructura del Repositorio
+## Estructura del Repositorio
 
 A continuación, una breve guía de los directorios clave para navegar por el proyecto:
 
@@ -31,7 +31,7 @@ A continuación, una breve guía de los directorios clave para navegar por el pr
 
 ---
 
-## 🛠️ Requisitos Técnicos
+## Requisitos Técnicos
 
 Para replicar, compilar o contribuir a este proyecto localmente, necesitas:
 
@@ -43,7 +43,7 @@ Para replicar, compilar o contribuir a este proyecto localmente, necesitas:
 
 ---
 
-## 🚀 Guía de Replicación (Android Studio)
+## Guía de Replicación (Android Studio)
 
 Sigue estos pasos para levantar el proyecto en tu máquina local:
 
@@ -68,7 +68,7 @@ Sigue estos pasos para levantar el proyecto en tu máquina local:
 
 ---
 
-## 🔄 Estrategia de Branching & CI/CD
+## Estrategia de Branching & CI/CD
 
 El proyecto utiliza un flujo **GitHub Flow Protegido** para garantizar la calidad:
 
@@ -87,7 +87,7 @@ Cada cambio activa una serie de pasos automatizados:
 
 ---
 
-## 📥 Descargas (Releases)
+## Descargas (Releases)
 
 Este proyecto genera automáticamente instalables en cada versión estable.
 
