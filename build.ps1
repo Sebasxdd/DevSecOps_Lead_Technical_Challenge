@@ -1,6 +1,6 @@
 Write-Host "🚀 Iniciando Build Local..." -ForegroundColor Yellow
 
-# Limpiar y Testear
+# Limpiar y Testear t
 ./gradlew.bat clean testDebugUnitTest
 if ($LASTEXITCODE -ne 0) { Write-Host "❌ Error en los tests" -ForegroundColor Red; exit 1 }
 
