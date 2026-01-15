@@ -12,6 +12,7 @@ android {
         minSdk = 24
         targetSdk = 35
 
+
         // --- LÓGICA DINÁMICA (DEVSECOPS) ---
         // 1. Intentamos leer el número de Build desde GitHub Actions.
         // Si no existe (ej. compilando en local), usamos '1' por defecto.
